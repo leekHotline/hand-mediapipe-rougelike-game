@@ -9,6 +9,8 @@ This document provides visual flowcharts to help understand the game's architect
 - [System Architecture](#system-architecture)
 - [Combat System](#combat-system)
 - [Player Progression](#player-progression)
+- [Data Flow Architecture](#data-flow-architecture)
+- [Gesture Patterns](#gesture-patterns)
 
 ---
 
@@ -479,4 +481,3 @@ flowchart LR
     style Peace fill:#98FB98
     style Thumb fill:#DDA0DD
 ```
-
