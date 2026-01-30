@@ -1,0 +1,276 @@
+/* 全局游戏样式 */
+
+/* CRT 扫描线效果 */
+.crt-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.15;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.3) 2px,
+    rgba(0, 0, 0, 0.3) 4px
+  );
+}
+
+/* 霓虹发光效果 */
+.neon-glow {
+  text-shadow: 
+    0 0 5px currentColor,
+    0 0 10px currentColor,
+    0 0 20px currentColor,
+    0 0 40px currentColor;
+}
+
+.neon-border {
+  box-shadow: 
+    0 0 5px currentColor,
+    inset 0 0 5px currentColor;
+}
+
+/* 卡牌悬停效果 */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* 粒子动画 */
+@keyframes particle-float {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) scale(0);
+    opacity: 0;
+  }
+}
+
+.particle {
+  animation: particle-float 1s ease-out forwards;
+}
+
+/* 伤害数字动画 */
+@keyframes damage-pop {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0;
+  }
+  20% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -150%) scale(1);
+    opacity: 0;
+  }
+}
+
+.damage-text {
+  animation: damage-pop 1s ease-out forwards;
+}
+
+/* 脉冲动画 */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px currentColor;
+  }
+  50% {
+    box-shadow: 0 0 40px currentColor, 0 0 60px currentColor;
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* 摇晃动画 */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* 闪烁动画 */
+@keyframes flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.flash {
+  animation: flash 0.3s ease-in-out 3;
+}
+
+/* 蓄力进度条动画 */
+@keyframes charge-pulse {
+  0% {
+    box-shadow: 0 0 10px currentColor;
+  }
+  50% {
+    box-shadow: 0 0 30px currentColor, 0 0 50px currentColor;
+  }
+  100% {
+    box-shadow: 0 0 10px currentColor;
+  }
+}
+
+.charging {
+  animation: charge-pulse 0.5s ease-in-out infinite;
+}
+
+/* 手势识别高亮 */
+.gesture-match {
+  animation: gesture-pulse 0.3s ease-out;
+}
+
+@keyframes gesture-pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 currentColor;
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px 10px currentColor;
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 currentColor;
+  }
+}
+
+/* 敌人意图动画 */
+@keyframes intent-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.intent-icon {
+  animation: intent-bounce 1s ease-in-out infinite;
+}
+
+/* 回合切换动画 */
+@keyframes turn-slide {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.turn-indicator {
+  animation: turn-slide 0.3s ease-out;
+}
+
+/* 卡牌打出动画 */
+@keyframes card-play {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-100px) scale(1.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-200px) scale(0);
+    opacity: 0;
+  }
+}
+
+.card-playing {
+  animation: card-play 0.4s ease-in forwards;
+}
+
+/* 背景网格动画 */
+@keyframes grid-move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px;
+  }
+}
+
+.animated-grid {
+  animation: grid-move 2s linear infinite;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* 选择文本样式 */
+::selection {
+  background: rgba(6, 182, 212, 0.3);
+  color: white;
+}
+
+/* 禁用文本选择（游戏区域） */
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .card-container {
+    transform: scale(0.8);
+  }
+  
+  .enemy-container {
+    transform: scale(0.9);
+  }
+}
+
+/* 性能优化 */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* 减少动画（无障碍） */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
